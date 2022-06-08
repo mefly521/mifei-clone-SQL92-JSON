@@ -17,6 +17,10 @@ function conditions (select) {
 
   return function stringifyConditions (conditions) {
     var firstField = conditions.shift()
+    if (firstField.indexOf('${') == 0 && conditions.length == 0) {
+      return firstField
+    }
+
     var firstFilter = conditions.shift()
 
     var strinfigyFilter = filter(select)

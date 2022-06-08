@@ -74,6 +74,8 @@ function filter (select) {
       } else {
         return 'AND ' + encloseWithParenthesis(stringyfiedAND)
       }
+    } else if (AND) {
+      return 'AND ' + AND
     }
 
     var BETWEEN = filter.BETWEEN
@@ -114,6 +116,8 @@ function filter (select) {
       } else {
         return 'OR ' + encloseWithParenthesis(stringyfiedOR)
       }
+    } else if (OR) {
+      return 'OR ' + OR
     }
   }
 }

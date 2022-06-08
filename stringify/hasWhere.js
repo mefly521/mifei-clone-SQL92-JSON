@@ -11,7 +11,7 @@
  */
 
 function hasWhere (json) {
-  return Array.isArray(json.WHERE) && json.WHERE.length > 1
+  return Array.isArray(json.WHERE) && json.WHERE.length >= 1
 }
 
 module.exports = hasWhere
