@@ -16,7 +16,12 @@ function stringField (field) {
   if (dataType) {
     if (fieldNameIsValid && isDataType(dataType)) return field
   } else {
-    if (fieldNameIsValid) return field
+    if (fieldNameIsValid) {
+      return field
+    }else{
+      // mifei add:  select a+1 as d from xxx, this should always return true
+      return field
+    }
   }
 }
 
