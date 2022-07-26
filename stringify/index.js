@@ -2,8 +2,12 @@ var isCreateTable = require('./isCreateTable')
 var isDeleteFrom = require('./isDeleteFrom')
 var isDropTable = require('./isDropTable')
 var isSelect = require('./isSelect')
+var isUpdateTable = require('./isUpdateTable')
+var isInsertTable = require('./isInsertTable')
 
+var insertTable = require('./insertTable')
 var createTable = require('./createTable')
+var updateTable = require('./updateTable')
 var deleteFrom = require('./deleteFrom')
 var dropTable = require('./dropTable')
 var select = require('./select')
@@ -18,6 +22,14 @@ var select = require('./select')
 
 function stringify (json) {
   var sql = ''
+
+  if (isUpdateTable(json)) {
+    return updateTable(json)
+  }
+
+  if (isInsertTable(json)) {
+    return insertTable(json)
+  }
 
   if (isDeleteFrom(json)) {
     return deleteFrom(json)
